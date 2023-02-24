@@ -1,58 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+const allEvents = [
+    {
+        date: '3月17日(金)',
+        events: [
+            { start: '14:00', end: '14:45', name: '深澤', title: 'TBA'},
+            { start: '15:00', end: '15:45', name: '原本', title: 'TBA'},
+            { start: '16:00', end: '16:45', name: '渡辺', title: 'TBA'},
+        ],
+    },
+    {
+        date: '3月18日(土)',
+        events: [
+            { start: '10:00', end: '10:45', name: '東根', title: 'TBA'},
+            { start: '11:00', end: '11:45', name: '田端', title: 'TBA'},
+            { start: '14:00', end: '14:45', name: '木村', title: 'TBA'},
+            { start: '15:00', end: '15:45', name: '奥田', title: 'TBA'},
+            { start: '15:50', end: '??:??', name: 'みんな', title: '木村先生お祝い会（？）'},
+        ],
+    },
+]
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="代数学ワークショップ">
+    <header>
+		<h1><img src="logo.svg" alt="代数学ワークショップ" class="logo"></h1>
+        
+        <p>2023年3月17日(金)—3月18日(土), 
+        広島大学</p>
+    </header>
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+        <h2>会場</h2>
+        広島大学理学部 B707 (<a href="https://www.hiroshima-u.ac.jp/access/higashihiroshima">広島大学 東広島キャンパスへのアクセス</a>)</dd>
+
+        <dl>
+            <dt>世話人</dt><dd>奥田俊一朗、深澤知、原本博史、田端亮、沖吉真実</dd>
+            <dt>現地世話人</dt><dd>高橋宣能、北䑓如法</dd>
+        </dl>
+
+        <p class="instructions">
+            コロナウィルス感染予防のため、参加者の把握にご協力ください。
+            参加を予定される方は必ず深澤または世話人のいずれかへご連絡ください。
+        </p>
+        
+        
+        <h2>プログラム</h2>
+        { allEvents.map((day) =>
+        <h3>{day.date}</h3>
+        <ul>
+            {day.events.map((event) => <p>{event.start}-{event.end} {event.name} {event.title} </p>)}
+        </ul>
+        )}
+        
 	</main>
 </Layout>
 
 <style>
+ header {
+     border: 9px solid rgb(var(--main));
+     margin: 0;
+     padding: 0;
+     text-align: center;
+     color: rgb(var(--main));
+     font-weight: bold;
+ }
+ .logo {
+     max-width: 680px;
+ }
 	main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 60ch;
 	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
+ h1 {
+	 font-size: 3rem;
+	 font-weight: 800;
+	 margin: 0;
+     border-bottom: 1px solid rgb(var(--main));
+ }
+ h2 {
+     color: rgb(var(--main));
+ }
+ h3 {
+     color: #666;
+ }
+ .text-gradient {
+	 background-image: var(--accent-gradient);
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
+	 background-size: 400%;
+	 background-position: 0%;
+ }
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;
