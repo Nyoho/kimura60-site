@@ -35,11 +35,6 @@ const allEvents = [
         <h2>会場</h2>
         <p>広島大学理学部 B707 (<a href="https://www.hiroshima-u.ac.jp/access/higashihiroshima">広島大学 東広島キャンパスへのアクセス</a>)</p>
 
-        <dl>
-            <dt>世話人</dt><dd>奥田俊一朗、深澤知、原本博史、田端亮、沖吉真実</dd>
-            <dt>現地世話人</dt><dd>高橋宣能、北䑓如法</dd>
-        </dl>
-
         <aside class="instructions">
             <span class="instruction-icon">🧡</span>
             <div class="instruction-message">
@@ -56,7 +51,14 @@ const allEvents = [
             {day.events.map((event) => <p>{event.start}-{event.end} {event.name} {event.title} </p>)}
         </ul>
         )}
-        
+
+
+        <h2>Organizers</h2>
+        <dl>
+            <dt>世話人</dt><dd>奥田俊一朗、深澤知、原本博史、田端亮、沖吉真実</dd>
+            <dt>現地世話人</dt><dd>高橋宣能、北䑓如法</dd>
+        </dl>
+
 	</main>
 </Layout>
 
