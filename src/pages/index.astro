@@ -28,12 +28,12 @@ const allEvents = [
     <header>
 		<h1><img src="logo.svg" alt="代数学ワークショップ" class="logo"></h1>
         
-        <p>2023年3月17日(金)—3月18日(土), 
+        <p>2023年3月17日(金)—18日(土), 
         広島大学</p>
     </header>
 	<main>
         <h2>会場</h2>
-        広島大学理学部 B707 (<a href="https://www.hiroshima-u.ac.jp/access/higashihiroshima">広島大学 東広島キャンパスへのアクセス</a>)</dd>
+        <p>広島大学理学部 B707 (<a href="https://www.hiroshima-u.ac.jp/access/higashihiroshima">広島大学 東広島キャンパスへのアクセス</a>)</p>
 
         <dl>
             <dt>世話人</dt><dd>奥田俊一朗、深澤知、原本博史、田端亮、沖吉真実</dd>
@@ -69,11 +69,14 @@ const allEvents = [
  .logo {
      max-width: 680px;
  }
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
+p {
+     line-height: 1.6;
+ }
+	 main {
+		 margin: auto;
+		 padding: 1.1rem;
+		 max-width: 60ch;
+	 }
  h1 {
 	 font-size: 3rem;
 	 font-weight: 800;
@@ -82,6 +85,7 @@ const allEvents = [
  }
  h2 {
      color: rgb(var(--main));
+     font-size: 1.87em;
  }
  h3 {
      color: #666;
@@ -96,7 +100,7 @@ const allEvents = [
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
+		border: 2px solid rgba(var(--main), 25%);
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.4rem;
