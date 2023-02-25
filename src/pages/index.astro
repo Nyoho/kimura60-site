@@ -40,10 +40,13 @@ const allEvents = [
             <dt>現地世話人</dt><dd>高橋宣能、北䑓如法</dd>
         </dl>
 
-        <p class="instructions">
-            コロナウィルス感染予防のため、参加者の把握にご協力ください。
-            参加を予定される方は必ず深澤または世話人のいずれかへご連絡ください。
-        </p>
+        <aside class="instructions">
+            <span class="instruction-icon">🧡</span>
+            <div class="instruction-message">
+                コロナウィルス感染予防のため、参加者の把握にご協力ください。
+                参加を予定される方は必ず深澤または世話人のいずれかへご連絡ください。
+            </div>
+        </aside>
         
         
         <h2>プログラム</h2>
@@ -104,15 +107,25 @@ p {
 		background-color: white;
 		padding: 1rem;
 		border-radius: 0.4rem;
+
+        display: flex;
+        align-items: flex-start;
 	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
+ .instruction-icon {
+     align-self: center;
+ }
+ .instruction-message {
+     flex: 1;
+     padding-left: .5em;
+ }
+ .instructions code {
+	 font-size: 0.875em;
+	 font-weight: bold;
+	 background: rgba(var(--accent), 12%);
+	 color: rgb(var(--accent));
+	 border-radius: 4px;
+	 padding: 0.3em 0.45em;
+ }
 	.instructions strong {
 		color: rgb(var(--accent));
 	}
