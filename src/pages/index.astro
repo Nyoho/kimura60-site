@@ -60,6 +60,9 @@ const allEvents = [
         </dl>
 
 	</main>
+    <footer>
+        代数学ワークショップ
+    </footer>
 </Layout>
 
 <style>
@@ -74,14 +77,14 @@ const allEvents = [
  .logo {
      max-width: 680px;
  }
-p {
+ p {
      line-height: 1.6;
  }
-	 main {
-		 margin: auto;
-		 padding: 1.1rem;
-		 max-width: 60ch;
-	 }
+ main {
+	 margin: auto;
+	 padding: 1.1rem;
+	 max-width: 60ch;
+ }
  h1 {
 	 font-size: 3rem;
 	 font-weight: 800;
@@ -102,17 +105,17 @@ p {
 	 background-size: 400%;
 	 background-position: 0%;
  }
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 2px solid rgba(var(--main), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
+ .instructions {
+	 line-height: 1.6;
+	 margin: 1rem 0;
+	 border: 2px solid rgba(var(--main), 25%);
+	 background-color: white;
+	 padding: 1rem;
+	 border-radius: 0.4rem;
 
-        display: flex;
-        align-items: flex-start;
-	}
+     display: flex;
+     align-items: flex-start;
+ }
  .instruction-icon {
      align-self: center;
  }
@@ -128,13 +131,20 @@ p {
 	 border-radius: 4px;
 	 padding: 0.3em 0.45em;
  }
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+ .instructions strong {
+	 color: rgb(var(--accent));
+ }
+ .link-card-grid {
+	 display: grid;
+	 grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+	 gap: 1rem;
+	 padding: 0;
+ }
+ footer {
+     background-color: rgb(var(--main));
+     margin: 0;
+     padding: 1em;
+     text-align: center;
+     color: white;
+ }
 </style>
