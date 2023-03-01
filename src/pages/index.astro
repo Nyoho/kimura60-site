@@ -46,10 +46,28 @@ const allEvents = [
         
         <h2>プログラム</h2>
         { allEvents.map((day) =>
-        <h3>{day.date}</h3>
-        <ul>
-            {day.events.map((event) => <p>{event.start}-{event.end} {event.name} {event.title} </p>)}
-        </ul>
+        <h3 class="date">{day.date}</h3>
+        <>
+            {day.events.map((event) =>
+            <div class="schedule-item">
+                <div class='schedule-time'>
+                    <span class='schedule-time-begin'>{event.start}</span>
+                    <span class='schedule-time-end'>{event.end}</span>
+                </div>
+                <div class='bar'/>
+                <div class='talk'>
+                    <figure class='person-picture-s' >
+                        <img src={`images/${Math.floor(Math.random()*8)+1}.jpg`} />
+                    </figure>
+                    <span class='speaker-name'>{event.name}</span>
+                    <div>
+                        <span class='title'>{event.title}</span>
+                    </div>
+                    <div class='abstract'>{event.abstract}</div>
+                </div>
+            </div>
+            )}
+        </>
         )}
 
 
@@ -91,12 +109,21 @@ const allEvents = [
 	 margin: 0;
      border-bottom: 1px solid rgb(var(--main));
  }
+ h1 img {
+     margin: 16px 28px;
+ }
+ header p {
+     margin: 16px 0;
+ }
  h2 {
      color: rgb(var(--main));
      font-size: 1.87em;
  }
  h3 {
      color: #666;
+ }
+ h3.date {
+     margin: 2.5em 0 0 0;
  }
  .text-gradient {
 	 background-image: var(--accent-gradient);
@@ -146,5 +173,84 @@ const allEvents = [
      padding: 1em;
      text-align: center;
      color: white;
+ }
+ .schedule-item {
+     margin-top: 2em;
+     text-align: left;
+     display: flex;
+     flex-direction: row;
+ }
+
+ .schedule-time {
+     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+     font-weight: normal;
+     display: flex;
+     justify-content: space-between;
+     flex-direction: column;
+ }
+
+ .schedule-time-begin {
+     font-size: smaller;
+ }
+
+ .schedule-time-end {
+     font-size: smaller;
+     color: #aaa;
+ }
+
+ .bar {
+     background-color: rgb(var(--main));
+     flex: 0 0 6px;
+     margin: 0 18px;
+     border-radius: 3px
+ }
+
+ .talk .title {
+     display: inline;
+     font-family: "Hiragino Maru Gothic W4 JIS2004", YuGothic, "Hiragino Kaku Gothic ProN", "Yu Gothic", 游ゴシック体, "Hiragino Kaku Gothic Pro", Meiryo, "Helvetica Neue", Helvetica, Arial, "Avenir Next", Quicksand, sans-serif;
+     font-size: 1.0em;
+ }
+
+ .talk .speaker-name {
+     font-size: larger;
+     font-weight: bold;
+     vertical-align: middle;
+ }
+
+ .talk figure {
+     display: inline-block;
+     vertical-align: middle;
+     margin: 8px 8px 8px 0;
+ }
+
+ .talk .abstract {
+     font-size: small;
+     line-height: 1.6;
+ }
+
+ main {
+     --avatar-size-s: 32px;
+     --avatar-size: 48px;
+ }
+ firgure {
+     margin: 0;
+     padding: 0;
+ }
+ .person-picture-s img {
+     margin: 0;
+     padding: 0;
+     width: var(var(--avatar-size-s));
+     height: var(--avatar-size-s);
+     border-radius: var(--avatar-size-s);
+     background-size: var(--avatar-size-s);
+     object-fit: cover;
+ }
+ @media (min-width: 600px) {
+     .person-picture-s img {
+         width: var(--avatar-size);
+         height: var(--avatar-size);
+         border-radius: var(--avatar-size);
+         background-size: var(--avatar-size);
+     }
  }
 </style>
