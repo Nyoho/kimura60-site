@@ -16,7 +16,7 @@ const allEvents = [
         events: [
             { start: '10:00', end: '10:45', name: '東根一樹', title: 'Galois lines for the maximal curve of the second largest genus in characteristic two'},
             { start: '11:00', end: '11:45', name: '田端亮', title: '量子力学に現れる Schur power matrix'},
-            { start: '14:00', end: '14:45', name: '木村俊一', title: 'もしもコラッツ予想を真剣に考えている時に、誰か他の人が解決してしまったら、明日からは一体何を考えれば良いのだろうか？'},
+            { start: '14:00', end: '14:45', name: '木村俊一', avatar: 'kimura.jpg', title: 'もしもコラッツ予想を真剣に考えている時に、誰か他の人が解決してしまったら、明日からは一体何を考えれば良いのだろうか？'},
             { start: '15:00', end: '15:45', name: '奥田俊一朗', title: '高校数学における思考力・判断力・表現力の向上を働きかける実践'},
         ],
     },
@@ -56,7 +56,7 @@ const allEvents = [
                 <div class='bar'/>
                 <div class='talk'>
                     <figure class='person-picture-s' >
-                        <img src={`images/${Math.floor(Math.random()*8)+1}.jpg`} />
+                        <img src={event.avatar ? `images/${event.avatar}` : 'images/general-person-silhouette.png'} />
                     </figure>
                     <span class='speaker-name'>{event.name}</span>
                     <div>
