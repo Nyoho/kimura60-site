@@ -96,6 +96,19 @@ import { allEvents } from '../components/data.astro';
  .logo {
      max-width: 680px;
  }
+ .logo {
+     animation: motion 0.8s linear 1;
+ }
+ @keyframes motion {
+     0% { transform: rotate(-90deg) scale(0.00001); }
+     20% { transform: rotate(-40deg) scale(0.01); }
+     40% { transform: rotate(-20deg) scale(0.1); }
+     60% { transform: rotate(0deg) scale(1.1)}
+     70% { transform: rotate(0deg) scale(0.9)}
+     80% { transform: rotate(0deg) scale(1.02)}
+     90% { transform: rotate(0deg) scale(0.98)}
+     100%% { transform: rotate(0deg) scale(1)}
+ }
  p {
      line-height: 1.6;
  }
