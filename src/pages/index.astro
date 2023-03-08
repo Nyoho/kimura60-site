@@ -44,6 +44,11 @@ import { allEvents } from '../components/data.astro';
                         <span class='title'>{event.title}</span>
                     </div>
                     <div class='abstract'>{event.abstract}</div>
+                    { event.handout &&
+                    <div class='detail'>
+                        <span class='handout'><a href={event.handout}>» handout</a></span>
+                    </div>
+                    }
                 </div>
             </div>
             )}
@@ -223,6 +228,15 @@ import { allEvents } from '../components/data.astro';
      line-height: 1.6;
  }
 
+ .handout {
+     font-size: smaller;
+ }
+ .handout a {
+     color: #666;
+ }
+ .handout a:hover {
+     color: #099;
+ }
  dd {
      margin-bottom: 1em;
  }
