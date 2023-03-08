@@ -1,26 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-
-const allEvents = [
-    {
-        date: '3月17日(金)',
-        events: [
-            { start: '14:00', end: '14:45', name: '深澤知', avatar: 'fukasawa.jpg', title: '例をつくる、地に足をつける、ノートを見ない'},
-            { start: '15:00', end: '15:45', name: '原本博史', avatar: 'haramoto.jpg', title: 'いくつかの擬似乱数に関する統計的・非統計的な評価について'},
-            { start: '16:00', end: '16:45', name: '渡辺業', title: 'コラッツ予想の2進整数への拡張とその応用'},
-        ],
-    },
-    {
-        date: '3月18日(土)',
-        events: [
-            { start: '10:00', end: '10:45', name: '東根一樹', title: 'Galois lines for the maximal curve of the second largest genus in characteristic two'},
-            { start: '11:00', end: '11:45', name: '田端亮', title: '量子力学に現れる Schur power matrix'},
-            { start: '14:00', end: '14:45', name: '木村俊一', avatar: 'kimura.jpg', title: 'もしもコラッツ予想を真剣に考えている時に、誰か他の人が解決してしまったら、明日からは一体何を考えれば良いのだろうか？'},
-            { start: '15:00', end: '15:45', name: '奥田俊一朗', title: '高校数学における思考力・判断力・表現力の向上を働きかける実践'},
-        ],
-    },
-]
+import { allEvents } from '../components/data.astro';
 ---
 
 <Layout title="代数学ワークショップ">
@@ -87,6 +68,14 @@ const allEvents = [
     <footer>
         代数学ワークショップ
     </footer>
+    <script>
+     const now = new Date()
+     const str = new Intl.DateTimeFormat('ja-JP', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Asia/Tokyo' }).format(now);
+
+     setInterval(() => {
+         console.log(Math.random()*11111);
+     }, 5000);
+    </script>
 </Layout>
 
 <style>
@@ -234,6 +223,13 @@ const allEvents = [
      line-height: 1.6;
  }
 
+ dd {
+     margin-bottom: 1em;
+ }
+ dt {
+     font-weight: bold;
+     margin-bottom: 4px;
+ }
  main {
      --avatar-size-s: 32px;
      --avatar-size: 48px;
