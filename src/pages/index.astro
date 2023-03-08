@@ -40,6 +40,7 @@ import { allEvents } from '../components/data.astro';
                         <img src={event.avatar ? `images/${event.avatar}` : 'images/general-person-silhouette.png'} />
                     </figure>
                     <span class='speaker-name'>{event.name}</span>
+                    { event.affiliation && <span class='speaker-affiliation'>({event.affiliation})</span> }
                     <div>
                         <span class='title'>{event.title}</span>
                     </div>
@@ -215,6 +216,12 @@ import { allEvents } from '../components/data.astro';
      font-size: larger;
      font-weight: bold;
      vertical-align: middle;
+ }
+
+ .talk .speaker-affiliation {
+     margin-left: 4px;
+     vertical-align: middle;
+     color: #555;
  }
 
  .talk figure {
