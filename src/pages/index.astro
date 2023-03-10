@@ -29,13 +29,23 @@ import { allEvents } from '../components/data.astro';
         { allEvents.map((day) =>
         <h3 class="date">{day.date}</h3>
         <>
-            {day.events.map((event) =>
-            <div class="schedule-item">
+            {day.events.map((event) => {
+            const startTime = new Date(event.start).toLocaleTimeString('ja-JP',
+            {
+            hour: '2-digit',
+            minute: '2-digit',
+            });
+            const endTime = new Date(event.end).toLocaleTimeString('ja-JP',
+            {
+            hour: '2-digit',
+            minute: '2-digit',
+            });
+            return <div class="schedule-item">
                 <div class='schedule-time'>
-                    <span class='schedule-time-begin'>{event.start}</span>
-                    <span class='schedule-time-end'>{event.end}</span>
+                    <span class='schedule-time-begin'>{startTime}</span>
+                    <span class='schedule-time-end'>{endTime}</span>
                 </div>
-                <div class='bar'/>
+                <div class='bar' data-start={event.start} data-end={event.end} />
                 <div class='talk'>
                     <figure class='person-picture-s' >
                         <img src={event.avatar ? `images/${event.avatar}` : 'images/general-person-silhouette.png'} />
@@ -53,6 +63,7 @@ import { allEvents } from '../components/data.astro';
                     }
                 </div>
             </div>
+            }
             )}
         </>
         )}
