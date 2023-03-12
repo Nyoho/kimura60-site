@@ -87,11 +87,23 @@ import { allEvents } from '../components/data.astro';
         代数学ワークショップ
     </footer>
     <script>
-     const now = new Date()
-     const str = new Intl.DateTimeFormat('ja-JP', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Asia/Tokyo' }).format(now);
+     const bars = document.querySelectorAll('.bar');
+
+     function updateUI() {
+         const now = new Date()
+         bars.forEach((bar) => {
+             const dateStart = new Date(bar.dataset.start)
+             const dateEnd = new Date(bar.dataset.end)
+             if (dateStart <= now && now <= dateEnd) {
+                 bar.classList.add('bar-now')
+             } else {
+                 bar.classList.remove('bar-now')
+             }
+         });
+     }
 
      setInterval(() => {
-         console.log(Math.random()*11111);
+         updateUI();
      }, 5000);
     </script>
 </Layout>
@@ -214,7 +226,10 @@ import { allEvents } from '../components/data.astro';
      margin: 0 18px;
      border-radius: 3px
  }
-
+ .bar-now {
+     background-color: rgb(var(--accent));
+ }
+ 
  .talk .title {
      display: inline;
      font-family: "Hiragino Maru Gothic W4 JIS2004", YuGothic, "Hiragino Kaku Gothic ProN", "Yu Gothic", 游ゴシック体, "Hiragino Kaku Gothic Pro", Meiryo, "Helvetica Neue", Helvetica, Arial, "Avenir Next", Quicksand, sans-serif;
