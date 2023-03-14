@@ -99,9 +99,15 @@ import { allEvents } from '../components/data.astro';
              } else {
                  bar.classList.remove('bar-now')
              }
+             if (now > dateEnd) {
+                 bar.classList.add('bar-done')
+             } else {
+                 bar.classList.remove('bar-done')
+             }
          });
      }
 
+     updateUI();
      setInterval(() => {
          updateUI();
      }, 5000);
@@ -230,6 +236,9 @@ import { allEvents } from '../components/data.astro';
      background-color: rgb(var(--accent));
      box-shadow: 0px 0px 12px rgb(var(--accent));
      animation: color-change 3s infinite ease-in-out alternate;
+ }
+ .bar-done {
+     background-color: #ccc;
  }
  @keyframes color-change {
      0% {
