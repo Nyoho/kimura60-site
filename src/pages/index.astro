@@ -13,6 +13,7 @@ import { allEvents } from '../components/data.astro';
         広島大学</p>
     </header>
 	<main>
+        <span id="countdown"></span>
         <h2>会場</h2>
         <p>広島大学理学部 B707 (<a href="https://www.hiroshima-u.ac.jp/access/higashihiroshima">広島大学 東広島キャンパスへのアクセス</a>)</p>
 
@@ -87,10 +88,39 @@ import { allEvents } from '../components/data.astro';
         代数学ワークショップ
     </footer>
     <script>
+     function countDownText(startDate0am, startTime, endTime) {
+         const ONE_DAY = 1000 * 60 * 60 * 24;
+         let theDay = Date.parse(startDate0am);
+         let now = new Date();
+         let diff = (theDay - now.getTime());
+         if (diff > 0) {
+             return `あと${Math.ceil(diff / ONE_DAY)}日`
+         } else {
+             const sec0 = (Date.parse(startTime) - now.getTime()) / 1000;
+             const sec1 = (Date.parse(  endTime) - now.getTime()) / 1000;
+             if (sec0 >= 0) {
+                 const min = sec0 / 60;
+                 const hour = Math.floor(min / 60);
+                 const hourStr = hour > 0 ? `${hour}時間` : ''
+                 return `あと${hourStr}${Math.ceil(min - hour * 60)}分`
+             } else if (sec1 < 0) {
+                 return '終了しました'
+             } else {
+                 return `開催中`
+             }
+         }
+     }
+
      const bars = document.querySelectorAll('.bar');
 
      function updateUI() {
          const now = new Date()
+
+         const countDown = document.querySelector('#countdown');
+         countdown.innerText = countDownText('2023-03-17T00:00:00+0900',
+                                             '2023-03-17T14:00:00+0900',
+                                             '2023-03-18T17:00:00+0900')
+
          bars.forEach((bar) => {
              const dateStart = new Date(bar.dataset.start)
              const dateEnd = new Date(bar.dataset.end)
@@ -324,5 +354,13 @@ import { allEvents } from '../components/data.astro';
      .talk .speaker-name {
          font-size: 22px;
      }
+ }
+ #countdown {
+     float: right;
+     background-color: white;
+     padding: 8px;
+     color: rgb(var(--accent));
+     border: 2px solid rgb(var(--accent));
+     border-radius: 28px;
  }
 </style>
